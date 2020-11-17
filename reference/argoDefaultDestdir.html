@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Download and Cache a Dataset — downloadWithRetries • argoFloats</title>
+<title>Get the default Argo cache directory — argoDefaultDestdir • argoFloats</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,8 +46,11 @@
 
 
 
-<meta property="og:title" content="Download and Cache a Dataset — downloadWithRetries" />
-<meta property="og:description" content="General function for downloading and caching a dataset." />
+<meta property="og:title" content="Get the default Argo cache directory — argoDefaultDestdir" />
+<meta property="og:description" content="By default, files downloaded from the Argo mirror are placed in
+~/data/argo. You can configure where these files are stored by setting
+options(argoFloat.destdir=&quot;path/to/argo&quot;). To persist this value
+between sessions you can place this value in your .Rprofile." />
 
 
 
@@ -133,89 +136,33 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Download and Cache a Dataset</h1>
-    <small class="dont-index">Source: <a href='https://github.com/ArgoCanada/argoFloats/blob/master/R/download.R'><code>R/download.R</code></a></small>
-    <div class="hidden name"><code>downloadWithRetries.Rd</code></div>
+    <h1>Get the default Argo cache directory</h1>
+    <small class="dont-index">Source: <a href='https://github.com/ArgoCanada/argoFloats/blob/master/R/cache.R'><code>R/cache.R</code></a></small>
+    <div class="hidden name"><code>argoDefaultDestdir.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>General function for downloading and caching a dataset.</p>
+    <p>By default, files downloaded from the Argo mirror are placed in
+<code>~/data/argo</code>. You can configure where these files are stored by setting
+<code><a href='https://rdrr.io/r/base/options.html'>options(argoFloat.destdir="path/to/argo")</a></code>. To persist this value
+between sessions you can place this value in your <code>.Rprofile</code>.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>downloadWithRetries</span><span class='op'>(</span>
-  <span class='va'>url</span>,
-  destdir <span class='op'>=</span> <span class='fu'><a href='argoDefaultDestdir.html'>argoDefaultDestdir</a></span><span class='op'>(</span><span class='op'>)</span>,
-  destfile <span class='op'>=</span> <span class='cn'>NULL</span>,
-  quiet <span class='op'>=</span> <span class='cn'>FALSE</span>,
-  age <span class='op'>=</span> <span class='fu'><a href='argoDefaultDestdir.html'>argoDefaultProfileAge</a></span><span class='op'>(</span><span class='op'>)</span>,
-  retries <span class='op'>=</span> <span class='fl'>3</span>,
-  debug <span class='op'>=</span> <span class='fl'>0</span>
-<span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>argoDefaultDestdir</span><span class='op'>(</span><span class='op'>)</span>
 
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
-    <table class="ref-arguments">
-    <colgroup><col class="name" /><col class="desc" /></colgroup>
-    <tr>
-      <th>url</th>
-      <td><p>character value giving the full URL of a file to be downloaded.</p></td>
-    </tr>
-    <tr>
-      <th>destdir</th>
-      <td><p>character value indicating the directory in which to store
-downloaded files. The default value is to compute this using
-<code><a href='argoDefaultDestdir.html'>argoDefaultDestdir()</a></code>, which returns <code>~/data/argo</code> by default,
-although it also provides ways to set other values using
-<code><a href='https://rdrr.io/r/base/options.html'>options()</a></code>.
-Set <code>destdir=NULL</code>
-if <code>destfile</code> is a filename with full path information.
-File clutter is reduced by creating a top-level directory called
-<code>data</code>, with subdirectories for various file types; see
-&#8220;Examples&#8221;.</p></td>
-    </tr>
-    <tr>
-      <th>destfile</th>
-      <td><p>either character value indicating the name of the file
-or <code>NULL</code> (the default), in which case the file name is constructed from
-the other parameters of the function call, so that subsequent calls with
-the same parameters will yield the same result; this is useful
-for caching.</p></td>
-    </tr>
-    <tr>
-      <th>quiet</th>
-      <td><p>logical value; use <code>TRUE</code> to show more
-verbose information when downloading files.
-(Problems will still be reported, though.)</p></td>
-    </tr>
-    <tr>
-      <th>age</th>
-      <td><p>a numerical value indicating a time interval, in days.  If the file
-to be downloaded from the server already exists locally, and was created
-is less than <code>age</code> days in the past, it will not be downloaded.  The default,
-<code><a href='argoDefaultDestdir.html'>argoDefaultProfileAge()</a></code>, is one year.  Setting <code>age=0</code> will force a download.</p></td>
-    </tr>
-    <tr>
-      <th>retries</th>
-      <td><p>integer telling how many times to retry a download,
-if the first attempt fails.</p></td>
-    </tr>
-    <tr>
-      <th>debug</th>
-      <td><p>integer value indicating level of debugging. If this
-is less than 1, no debugging is done. Otherwise, some functions
-will print debugging information.  If a function call fails, the
-first step should be to rerun the function with <code>debug=1</code>,
-to see if the output suggests a problem in the call.</p></td>
-    </tr>
-    </table>
+<span class='fu'>argoDefaultIndexAge</span><span class='op'>(</span><span class='op'>)</span>
+
+<span class='fu'>argoDefaultProfileAge</span><span class='op'>(</span><span class='op'>)</span></pre>
+
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A character value indicating the full pathname to the downloaded file,
-or <code>NA</code>, if there was a problem with the download.</p>
-    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
+    <p>A character value containing a path to the default Argo data directory.</p>
 
-    <p>Dan Kelley</p>
-
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='fu'>argoDefaultDestdir</span><span class='op'>(</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] "~/data/argo"</div><div class='input'>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

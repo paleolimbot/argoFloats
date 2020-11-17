@@ -151,8 +151,8 @@ index (packaged within an <code>.rda</code> file) that is controlled by the <cod
     <pre class="usage"><span class='fu'>getIndex</span><span class='op'>(</span>
   filename <span class='op'>=</span> <span class='st'>"core"</span>,
   server <span class='op'>=</span> <span class='st'>"auto"</span>,
-  destdir <span class='op'>=</span> <span class='st'>"~/data/argo"</span>,
-  age <span class='op'>=</span> <span class='fl'>1</span>,
+  destdir <span class='op'>=</span> <span class='fu'><a href='argoDefaultDestdir.html'>argoDefaultDestdir</a></span><span class='op'>(</span><span class='op'>)</span>,
+  age <span class='op'>=</span> <span class='fu'><a href='argoDefaultDestdir.html'>argoDefaultIndexAge</a></span><span class='op'>(</span><span class='op'>)</span>,
   quiet <span class='op'>=</span> <span class='cn'>FALSE</span>,
   keep <span class='op'>=</span> <span class='cn'>FALSE</span>,
   debug <span class='op'>=</span> <span class='fl'>0</span>
@@ -187,8 +187,11 @@ must start with <code>"ftp://"</code>.</p></td>
     <tr>
       <th>destdir</th>
       <td><p>character value indicating the directory in which to store
-downloaded files. The default value of <code>"."</code> means to store the
-downloaded file in the present working directory.  Set <code>destdir=NULL</code>
+downloaded files. The default value is to compute this using
+<code><a href='argoDefaultDestdir.html'>argoDefaultDestdir()</a></code>, which returns <code>~/data/argo</code> by default,
+although it also provides ways to set other values using
+<code><a href='https://rdrr.io/r/base/options.html'>options()</a></code>.
+Set <code>destdir=NULL</code>
 if <code>destfile</code> is a filename with full path information.
 File clutter is reduced by creating a top-level directory called
 <code>data</code>, with subdirectories for various file types; see
@@ -198,7 +201,7 @@ File clutter is reduced by creating a top-level directory called
       <th>age</th>
       <td><p>numeric value indicating how old a downloaded file
 must be (in days), for it to be considered out-of-date.  The
-default, <code>age=1</code>, limits downloads to once per day, as a way
+default, <code><a href='argoDefaultDestdir.html'>argoDefaultIndexAge()</a></code>, limits downloads to once per day, as a way
 to avoid slowing down a workflow with a download that might take
 a minute or so. Note that setting <code>age=0</code> will force a new
 download, regardless of the age of the local file, and that
