@@ -82,7 +82,7 @@ As its filename indicates, it holds the &quot;synthetic&quot; version of &quot;r
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">argoFloats</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0</span>
       </span>
     </div>
 
@@ -154,6 +154,7 @@ As its filename indicates, it holds the "synthetic" version of "realtime" data.<
 
     <div class='dont-index'><p>Other raw datasets: 
 <code><a href='D4900785_048.nc.html'>D4900785_048.nc</a></code>,
+<code><a href='R3901602_163.nc.html'>R3901602_163.nc</a></code>,
 <code><a href='SD5903586_001.nc.html'>SD5903586_001.nc</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
@@ -173,18 +174,19 @@ As its filename indicates, it holds the "synthetic" version of "realtime" data.<
 #&gt; 
 #&gt; * type:        argos
 #&gt; * contains 1 objects
-#&gt; * hint: access these objects with e.g. x[["argos"]]
+#&gt; * hint: access list of oce::argo objects with x[["argos"]] or a single one with e.g. x[[1]]
 #&gt; * Processing Log
 #&gt; 
-#&gt;     - 2021-02-12 18:27:10 UTC: `create 'argoFloats' object`
-#&gt;     - 2021-02-12 18:27:10 UTC: `readProfiles(profiles = system.file("extdata", "SR2902204_131.nc",     package = "argoFloats"))`</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>a</span><span class='op'>[[</span><span class='fl'>1</span><span class='op'>]</span><span class='op'>]</span><span class='op'>)</span>
+#&gt;     - 2021-05-28 16:18:12 UTC: `create 'argoFloats' object`
+#&gt;     - 2021-05-28 16:18:12 UTC: `readProfiles(profiles = system.file("extdata", "SR2902204_131.nc",     package = "argoFloats"))`</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>a</span><span class='op'>[[</span><span class='fl'>1</span><span class='op'>]</span><span class='op'>]</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; Argo Summary
 #&gt; ------------
 #&gt; 
 #&gt; * Source:              "/Users/runner/work/_temp/Library/argoFloats/extdata/SR2902204_131.nc"
 #&gt; * id:                  "2902204"
+#&gt; * feature type:        "trajectoryProfile"
 #&gt; * Profiles:            0 delayed; 0 adjusted; 0 realtime
-#&gt; * Time:                2018-01-23 18:18:35 
+#&gt; * Time:                2018-01-23 18:18:35
 #&gt; * Data Overview
 #&gt; 
 #&gt;                                                 Min.       Mean      Max.  Dim. NAs          OriginalName
@@ -232,10 +234,10 @@ As its filename indicates, it holds the "synthetic" version of "realtime" data.<
 #&gt; 
 #&gt; * Processing Log
 #&gt; 
-#&gt;     - 2021-02-12 18:27:10 UTC: `create 'argo' object`
-#&gt;     - 2021-02-12 18:27:10 UTC: `initializeFlagScheme(object, name="argo", mapping=list(not_assessed=0,passed_all_tests=1,probably_good=2,probably_bad=3,bad=4,changed=5,not_used_6=6,not_used_7=7,estimated=8,missing=9)), default=c(0,3,4,9))`
-#&gt;     - 2021-02-12 18:27:10 UTC: `read.argo(file="/Users/runner/work/_temp/Library/argoFloats/extdata/SR2902204_131.nc")`
-#&gt;     - 2021-02-12 18:27:10 UTC: `override existing flagScheme to be mapping=list(not_assessed=0, passed_all_tests=1, probably_good=2, probably_bad=3, bad=4, changed=5, not_used_6=6, not_used_7=7, estimated=8, missing=9)),  default=c(0, 3, 4, 9)`</div><div class='input'>
+#&gt;     - 2021-05-28 16:18:12 UTC: `create 'argo' object`
+#&gt;     - 2021-05-28 16:18:12 UTC: `initializeFlagScheme(object, name="argo", mapping=list(not_assessed=0,passed_all_tests=1,probably_good=2,probably_bad=3,bad=4,changed=5,not_used_6=6,not_used_7=7,estimated=8,missing=9)), default=c(0,3,4,9))`
+#&gt;     - 2021-05-28 16:18:12 UTC: `read.argo(file="/Users/runner/work/_temp/Library/argoFloats/extdata/SR2902204_131.nc")`
+#&gt;     - 2021-05-28 16:18:12 UTC: `override existing flagScheme to be mapping=list(not_assessed=0, passed_all_tests=1, probably_good=2, probably_bad=3, bad=4, changed=5, not_used_6=6, not_used_7=7, estimated=8, missing=9)),  default=c(0, 3, 4, 9)`</div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

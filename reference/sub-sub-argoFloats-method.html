@@ -83,7 +83,7 @@ value of i and, in some cases, on the value of j; see &amp;#8220;Details&amp;#82
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">argoFloats</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0</span>
       </span>
     </div>
 
@@ -186,6 +186,8 @@ order listed here.</p><ol>
 <li><p>Otherwise, if <code>i</code> is <code>"data"</code> then the <code>data</code> slot of <code>x</code> is returned.</p></li>
 <li><p>Otherwise, if <code>i</code> is <code>"cycle"</code> then a character vector of the cycle
 numbers is returned.</p></li>
+<li><p>Otherwise, if <code>i</code> is <code>"processingLog"</code> then the <code>processingLog</code> slot of
+<code>x</code> is returned.</p></li>
 <li><p>Otherwise, if <code>i</code> is <code>"ID"</code> then a character vector of the ID numbers
 is returned.</p></li>
 <li><p>Otherwise, the following steps are taken, depending on <code>type</code>.</p></li>
@@ -252,7 +254,7 @@ is returned as a named list.  (At present, there is only one choice: <code>"argo
 <li><p>Otherwise, if <code>i</code> is a character value then it is taken to be
 an item within the <code>metadata</code> or <code>data</code> slots of the argo objects
 stored in <code>x</code>, and the returned value is a list containing that
-information with one (unnamed) item per profile.  <strong>FIXME: this does not work: &lt;&lt;&lt;</strong>
+information with one (unnamed) item per profile.
 If <code>j</code> is provided
 and equal to <code>"byLevel"</code>, then the items from the <code>metadata</code> are
 repeated (if necessary) and formed into matrix or vector of the same
@@ -277,7 +279,7 @@ a level.<strong>&gt;&gt;&gt; EMXIF</strong></p></li>
 </div><div class='output co'>#&gt; [1] "https://data-argo.ifremer.fr/dac/124"
 #&gt; [2] "https://data-argo.ifremer.fr/dac/125"</div><div class='input'><span class='co'># File names and geographical locations of first 5 items in index</span>
 <span class='va'>index5</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/subset.html'>subset</a></span><span class='op'>(</span><span class='va'>index</span>, <span class='fl'>1</span><span class='op'>:</span><span class='fl'>5</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='message'>Kept 5 profiles (0.496%)</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span>file<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/grep.html'>gsub</a></span><span class='op'>(</span><span class='st'>".*/"</span>, <span class='st'>""</span>, <span class='va'>index5</span><span class='op'>[[</span><span class='st'>"file"</span><span class='op'>]</span><span class='op'>]</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>]</span><span class='op'>)</span>,
+</div><div class='output co'>#&gt; <span class='message'>Kept 5 cycles (0.496%)</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span>file<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/grep.html'>gsub</a></span><span class='op'>(</span><span class='st'>".*/"</span>, <span class='st'>""</span>, <span class='va'>index5</span><span class='op'>[[</span><span class='st'>"file"</span><span class='op'>]</span><span class='op'>]</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>]</span><span class='op'>)</span>,
            lon<span class='op'>=</span><span class='va'>index5</span><span class='op'>[[</span><span class='st'>"longitude"</span><span class='op'>]</span><span class='op'>]</span>,
            lat<span class='op'>=</span><span class='va'>index5</span><span class='op'>[[</span><span class='st'>"latitude"</span><span class='op'>]</span><span class='op'>]</span><span class='op'>)</span>
 </div><div class='output co'>#&gt;              file     lon    lat
